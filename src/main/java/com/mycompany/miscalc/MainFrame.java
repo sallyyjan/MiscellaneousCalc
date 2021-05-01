@@ -10,12 +10,19 @@ package com.mycompany.miscalc;
  * @author sally
  */
 public class MainFrame extends javax.swing.JFrame {
-
+    
+    /** class state **/
+    int fromBase;
+    int toBase;
+    
+    
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        fromBase = 0;
+        toBase = 0;
     }
 
     /**
@@ -317,7 +324,13 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_baseConvertButtonActionPerformed
 
     //////////////////////// helper function ///////////////////////
+    private void setFromBaseLabel(){
+        this.fromBaseLabel.setText("in base " + fromBase);
+    }
     
+    private void setToBaseLabel(){
+        this.fromBaseLabel.setText("in base " + toBase);
+    }
     
     /**
      * @param args the command line arguments
