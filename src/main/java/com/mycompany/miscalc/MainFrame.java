@@ -83,8 +83,18 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         fromBinaryButton.setText("binary");
+        fromBinaryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fromBinaryButtonActionPerformed(evt);
+            }
+        });
 
         fromHexButton.setText("hex");
+        fromHexButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fromHexButtonActionPerformed(evt);
+            }
+        });
 
         toDecimalButton.setText("decimal");
 
@@ -308,7 +318,8 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void fromDecimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromDecimalButtonActionPerformed
-
+        this.fromBase = 10;
+        this.updateFromBaseLabel();
     }//GEN-LAST:event_fromDecimalButtonActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -323,12 +334,22 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_baseConvertButtonActionPerformed
 
+    private void fromBinaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromBinaryButtonActionPerformed
+        this.fromBase = 2;
+        this.updateFromBaseLabel();
+    }//GEN-LAST:event_fromBinaryButtonActionPerformed
+
+    private void fromHexButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromHexButtonActionPerformed
+        this.fromBase = 16;
+        this.updateFromBaseLabel();
+    }//GEN-LAST:event_fromHexButtonActionPerformed
+
     //////////////////////// helper function ///////////////////////
-    private void setFromBaseLabel(){
+    private void updateFromBaseLabel(){
         this.fromBaseLabel.setText("in base " + fromBase);
     }
     
-    private void setToBaseLabel(){
+    private void updateToBaseLabel(){
         this.fromBaseLabel.setText("in base " + toBase);
     }
     

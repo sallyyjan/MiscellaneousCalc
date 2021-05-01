@@ -224,11 +224,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="binary"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fromBinaryButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="fromHexButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="hex"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fromHexButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="toDecimalButton">
           <Properties>
