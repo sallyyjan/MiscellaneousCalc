@@ -46,7 +46,7 @@ public class MainFrame extends javax.swing.JFrame {
         toBinaryButton = new javax.swing.JButton();
         toHexButton = new javax.swing.JButton();
         fromBaseText = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        toBaseText = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         convertBaseText = new javax.swing.JTextField();
@@ -98,10 +98,25 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         toDecimalButton.setText("decimal");
+        toDecimalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toDecimalButtonActionPerformed(evt);
+            }
+        });
 
         toBinaryButton.setText("binary");
+        toBinaryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toBinaryButtonActionPerformed(evt);
+            }
+        });
 
         toHexButton.setText("hex");
+        toHexButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toHexButtonActionPerformed(evt);
+            }
+        });
 
         fromBaseText.setText("enter base");
         fromBaseText.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +125,12 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField3.setText("enter base");
+        toBaseText.setText("enter base");
+        toBaseText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toBaseTextActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Converting");
 
@@ -159,7 +179,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(toHexButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3))))
+                            .addComponent(toBaseText))))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -213,7 +233,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fromBaseText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(toBaseText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(baseConvertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
@@ -343,6 +363,7 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println("fromBase String cannot be converted to integer");
             this.outputLabel.setText("From base convert, \"" + this.fromBaseText.getText()
             + "\" is not valid integer" );
+            this.fromBaseLabel.setText("in invalid base");
         }
     }//GEN-LAST:event_fromBaseTextActionPerformed
 
@@ -360,13 +381,42 @@ public class MainFrame extends javax.swing.JFrame {
         this.updateFromBaseLabel();
     }//GEN-LAST:event_fromHexButtonActionPerformed
 
+    private void toDecimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toDecimalButtonActionPerformed
+        this.toBase = 10;
+        this.updateToBaseLabel();
+    }//GEN-LAST:event_toDecimalButtonActionPerformed
+
+    private void toBinaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toBinaryButtonActionPerformed
+        this.toBase = 2;
+        this.updateToBaseLabel();
+    }//GEN-LAST:event_toBinaryButtonActionPerformed
+
+    private void toHexButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toHexButtonActionPerformed
+        this.toBase = 16;
+        this.updateToBaseLabel();
+    }//GEN-LAST:event_toHexButtonActionPerformed
+
+    private void toBaseTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toBaseTextActionPerformed
+        int baseConvert;
+        try{
+            baseConvert = Integer.parseInt(this.toBaseText.getText());
+            this.toBase = baseConvert;
+            this.updateToBaseLabel();
+        } catch(NumberFormatException e){
+            System.out.println("inBase String cannot be converted to integer");
+            this.outputLabel.setText("To base convert, \"" + this.toBaseText.getText()
+            + "\" is not valid integer" );
+            this.toBaseLabel.setText("in invalid base");
+        }
+    }//GEN-LAST:event_toBaseTextActionPerformed
+
     //////////////////////// helper function ///////////////////////
     private void updateFromBaseLabel(){
         this.fromBaseLabel.setText("in base " + fromBase);
     }
     
     private void updateToBaseLabel(){
-        this.fromBaseLabel.setText("in base " + toBase);
+        this.toBaseLabel.setText("in base " + toBase);
     }
     
     /**
@@ -427,9 +477,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel outputLabel;
     private javax.swing.JLabel toBaseLabel;
+    private javax.swing.JTextField toBaseText;
     private javax.swing.JButton toBinaryButton;
     private javax.swing.JButton toDecimalButton;
     private javax.swing.JButton toHexButton;

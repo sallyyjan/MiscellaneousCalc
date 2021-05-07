@@ -104,7 +104,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="toHexButton" min="-2" pref="73" max="-2" attributes="0"/>
-                              <Component id="jTextField3" max="32767" attributes="0"/>
+                              <Component id="toBaseText" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -177,7 +177,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="fromBaseText" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="toBaseText" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="baseConvertButton" min="-2" pref="17" max="-2" attributes="0"/>
@@ -244,16 +244,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="decimal"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toDecimalButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="toBinaryButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="binary"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toBinaryButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="toHexButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="hex"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toHexButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="fromBaseText">
           <Properties>
@@ -263,10 +272,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fromBaseTextActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="toBaseText">
           <Properties>
             <Property name="text" type="java.lang.String" value="enter base"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toBaseTextActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
